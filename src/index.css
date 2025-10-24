@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 自定义渐变背景 */
+.dream-gradient {
+  background: linear-gradient(135deg, 
+    #e8f5e8 0%, 
+    #f0e6f0 25%, 
+    #f5e6f5 50%, 
+    #f0e8f0 75%, 
+    #e8f0e8 100%);
+}
+
+.about-gradient {
+  background: linear-gradient(135deg, 
+    #f0f8f0 0%, 
+    #f5f0f5 25%, 
+    #f8f5f8 50%, 
+    #f0f5f0 75%, 
+    #e8f5e8 100%);
+}
+
+.gallery-gradient {
+  background: linear-gradient(135deg, 
+    #fdf2f8 0%, 
+    #f0fdf4 25%, 
+    #fef7ff 50%, 
+    #f0f9ff 75%, 
+    #f0fdf4 100%);
+}
+
+/* 星光粒子效果 */
+.sparkle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  animation: sparkle 3s infinite ease-in-out;
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+    opacity: 0; 
+    transform: scale(0) rotate(0deg);
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+/* 花瓣飘落效果 */
+.petal {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 182, 193, 0.6);
+  border-radius: 50% 0;
+  animation: fall 8s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* 光晕扩散效果 */
+.glow-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  animation: ripple 1.5s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 182, 193, 0.5);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 182, 193, 0.7);
+}
+

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我不是脆弱，而是珍贵</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        .lxgw-wenkai {
+            font-family: 'LXGW WenKai', cursive;
+        }
+        .playfair-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* 自定义渐变背景 */
+        .dream-gradient {
+            background: linear-gradient(135deg, 
+                #e8f5e8 0%, 
+                #f0e6f0 25%, 
+                #f5e6f5 50%, 
+                #f0e8f0 75%, 
+                #e8f0e8 100%);
+        }
+        
+        /* 星光粒子动画 */
+        .sparkle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: sparkle 3s infinite ease-in-out;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { 
+                opacity: 0; 
+                transform: scale(0) rotate(0deg);
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1) rotate(180deg);
+            }
+        }
+        
+        /* 柔和光影效果 */
+        .soft-glow {
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3),
+                        0 0 60px rgba(255, 255, 255, 0.1);
+        }
+        
+        /* 呼吸动画 */
+        .breathe {
+            animation: breathe 4s ease-in-out infinite;
+        }
+        
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        /* 花瓣飘落效果 */
+        .petal {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 182, 193, 0.6);
+            border-radius: 50% 0;
+            animation: fall 8s linear infinite;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen dream-gradient overflow-hidden">
+    <!-- 星光粒子背景 -->
+    <div class="fixed inset-0 pointer-events-none">
+        <div class="sparkle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="sparkle" style="top: 30%; left: 80%; animation-delay: 1s;"></div>
+        <div class="sparkle" style="top: 60%; left: 20%; animation-delay: 2s;"></div>
+        <div class="sparkle" style="top: 70%; left: 70%; animation-delay: 0.5s;"></div>
+        <div class="sparkle" style="top: 40%; left: 50%; animation-delay: 1.5s;"></div>
+        <div class="sparkle" style="top: 80%; left: 30%; animation-delay: 2.5s;"></div>
+        <div class="sparkle" style="top: 15%; left: 60%; animation-delay: 3s;"></div>
+        <div class="sparkle" style="top: 85%; left: 90%; animation-delay: 1.2s;"></div>
+    </div>
+    
+    <!-- 花瓣飘落效果 -->
+    <div class="fixed inset-0 pointer-events-none">
+        <div class="petal" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="petal" style="left: 30%; animation-delay: 2s;"></div>
+        <div class="petal" style="left: 50%; animation-delay: 4s;"></div>
+        <div class="petal" style="left: 70%; animation-delay: 1s;"></div>
+        <div class="petal" style="left: 90%; animation-delay: 3s;"></div>
+    </div>
+    
+    <!-- 主要内容区域 -->
+    <div class="min-h-screen flex flex-col justify-center items-center px-4 relative z-10">
+        <!-- 主格言区域 -->
+        <div class="text-center max-w-4xl mx-auto breathe">
+            <!-- 中文格言 -->
+            <h1 class="lxgw-wenkai text-4xl md:text-6xl lg:text-7xl font-light text-gray-700 mb-6 leading-tight">
+                我不是脆弱，而是珍贵
+            </h1>
+            
+            <!-- 英文格言 -->
+            <p class="playfair-display text-lg md:text-xl lg:text-2xl text-gray-600 italic font-light tracking-wide">
+                I'm Not Fragile but Precious
+            </p>
+            
+            <!-- 导航按钮组 -->
+            <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                <button 
+                    onclick="window.location.href='about.html'"
+                    class="lxgw-wenkai px-6 py-3 rounded-full text-gray-700 bg-white/50 hover:bg-white/70 backdrop-blur border border-white/60 shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                >
+                    关于我
+                </button>
+                <button 
+                    onclick="window.location.href='gallery.html'"
+                    class="lxgw-wenkai px-6 py-3 rounded-full text-gray-700 bg-white/50 hover:bg-white/70 backdrop-blur border border-white/60 shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                >
+                    视觉空间
+                </button>
+                <button 
+                    onclick="window.location.href='diary.html'"
+                    class="lxgw-wenkai px-6 py-3 rounded-full text-gray-700 bg-white/50 hover:bg-white/70 backdrop-blur border border-white/60 shadow-sm transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                >
+                    灵感日志
+                </button>
+            </div>
+        </div>
+        
+        <!-- AI元素装饰 -->
+        <div class="mt-16 flex items-center space-x-2 text-gray-500">
+            <div class="w-2 h-2 bg-gradient-to-r from-pink-300 to-green-300 rounded-full animate-pulse"></div>
+            <span class="text-sm lxgw-wenkai">designed with KENZIE</span>
+            <div class="w-2 h-2 bg-gradient-to-r from-green-300 to-pink-300 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+        </div>
+    </div>
+    
+    <!-- 底部装饰 -->
+    <div class="fixed bottom-8 left-1/2 transform -translate-x-1/2 pointer-events-none">
+        <div class="flex space-x-1">
+            <div class="w-1 h-1 bg-pink-300 rounded-full animate-pulse"></div>
+            <div class="w-1 h-1 bg-green-300 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+            <div class="w-1 h-1 bg-pink-300 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+        </div>
+    </div>
+    
+    <script>
+        // 动态添加更多星光粒子
+        function createSparkles() {
+            const container = document.querySelector('.fixed.inset-0.pointer-events-none');
+            for (let i = 0; i < 5; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(sparkle);
+            }
+        }
+        
+        // 页面加载完成后添加更多粒子
+        window.addEventListener('load', () => {
+            setTimeout(createSparkles, 1000);
+        });
+    </script>
+</body>
+</html>

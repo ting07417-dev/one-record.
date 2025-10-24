@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片测试页面</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-image { margin: 10px; border: 2px solid #ccc; max-width: 200px; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+    <h1>图片加载测试</h1>
+    
+    <h2>测试 images/ 文件夹中的图片：</h2>
+    <div>
+        <img src="images/photo1.jpg" alt="photo1" class="test-image" onload="this.style.border='2px solid green'" onerror="this.style.border='2px solid red'; this.alt='加载失败'">
+        <p>photo1.jpg</p>
+    </div>
+    
+    <div>
+        <img src="images/photo2.jpg" alt="photo2" class="test-image" onload="this.style.border='2px solid green'" onerror="this.style.border='2px solid red'; this.alt='加载失败'">
+        <p>photo2.jpg</p>
+    </div>
+    
+    <div>
+        <img src="images/photo3.jpg" alt="photo3" class="test-image" onload="this.style.border='2px solid green'" onerror="this.style.border='2px solid red'; this.alt='加载失败'">
+        <p>photo3.jpg</p>
+    </div>
+    
+    <h2>测试根目录的图片：</h2>
+    <div>
+        <img src="image1.jpg" alt="image1" class="test-image" onload="this.style.border='2px solid green'" onerror="this.style.border='2px solid red'; this.alt='加载失败'">
+        <p>image1.jpg</p>
+    </div>
+    
+    <div>
+        <img src="image2.jpg" alt="image2" class="test-image" onload="this.style.border='2px solid green'" onerror="this.style.border='2px solid red'; this.alt='加载失败'">
+        <p>image2.jpg</p>
+    </div>
+    
+    <div>
+        <img src="image3.jpg" alt="image3" class="test-image" onload="this.style.border='2px solid green'" onerror="this.style.border='2px solid red'; this.alt='加载失败'">
+        <p>image3.jpg</p>
+    </div>
+    
+    <script>
+        // 检查图片加载状态
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach((img, index) => {
+                img.addEventListener('load', function() {
+                    console.log(`图片 ${index + 1} 加载成功: ${this.src}`);
+                });
+                img.addEventListener('error', function() {
+                    console.error(`图片 ${index + 1} 加载失败: ${this.src}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

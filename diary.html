@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary · 灵感日志</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --warm-text: rgba(55, 65, 81, 0.95);
+            --soft-text: rgba(75, 85, 99, 0.85);
+        }
+        .lxgw-wenkai { font-family: 'LXGW WenKai', cursive; }
+        .playfair { font-family: 'Playfair Display', serif; }
+
+        /* 手账化背景：纸质纹理 + 淡粉页边阴影 */
+        .diary-bg {
+            background: 
+                linear-gradient(135deg, #fef7f0 0%, #f5f0f5 45%, #f0f5f0 100%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f0f0f0' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            box-shadow: 
+                inset 0 0 0 1px rgba(255, 182, 193, 0.2),
+                0 0 0 1px rgba(255, 182, 193, 0.15),
+                0 2px 8px rgba(255, 182, 193, 0.1);
+        }
+
+        /* 页面淡入 */
+        .fade-in { animation: fadeIn 1.2s ease-out both; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: translateY(0);} }
+
+        /* 手账式卡片 */
+        .diary-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 182, 193, 0.3);
+            box-shadow: 
+                0 4px 12px rgba(255, 182, 193, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        }
+
+        /* 手账式图片容器 */
+        .diary-image {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,240,245,0.7));
+            border: 2px solid rgba(255, 182, 193, 0.4);
+            box-shadow: 0 4px 12px rgba(255, 182, 193, 0.2);
+        }
+
+        /* 轻微浮动动画 */
+        .float-gentle { animation: floatGentle 6s ease-in-out infinite; }
+        @keyframes floatGentle { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-8px);} }
+
+        /* 手账式分割线 */
+        .diary-divider {
+            background: linear-gradient(90deg, transparent, rgba(255, 182, 193, 0.3), transparent);
+            height: 1px;
+        }
+
+        /* 返回按钮 */
+        .back-btn {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 182, 193, 0.4);
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 182, 193, 0.3);
+        }
+    </style>
+</head>
+<body class="min-h-screen diary-bg">
+    <!-- 返回按钮 -->
+    <div class="fixed top-6 left-6 z-20">
+        <button onclick="window.location.href='index.html'" class="back-btn px-4 py-2 rounded-full lxgw-wenkai text-gray-700 text-sm">
+            ← 返回首页
+        </button>
+    </div>
+
+    <!-- 主内容 -->
+    <main class="relative z-10 px-6 py-20 md:py-24 max-w-4xl mx-auto">
+        <!-- 页面标题 -->
+        <header class="fade-in text-center mb-12">
+            <h1 class="lxgw-wenkai text-3xl md:text-4xl text-gray-700 mb-2">灵感日志</h1>
+            <p class="playfair text-gray-500 italic">Diary</p>
+        </header>
+
+        <!-- 图片展示区域 -->
+        <section class="fade-in mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- 图片1 -->
+                <div class="diary-image diary-card rounded-lg p-4 float-gentle" style="animation-delay: 0s;">
+                    <div class="aspect-square rounded-lg overflow-hidden">
+                        <img src="image1.jpg" alt="图片 1" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <!-- 图片2 -->
+                <div class="diary-image diary-card rounded-lg p-4 float-gentle" style="animation-delay: 1s;">
+                    <div class="aspect-square rounded-lg overflow-hidden">
+                        <img src="image2.jpg" alt="图片 2" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <!-- 图片3 -->
+                <div class="diary-image diary-card rounded-lg p-4 float-gentle" style="animation-delay: 2s;">
+                    <div class="aspect-square rounded-lg overflow-hidden">
+                        <img src="image3.jpg" alt="图片 3" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分割线 -->
+        <div class="diary-divider mb-12"></div>
+
+        <!-- 文段区域 -->
+        <section class="fade-in space-y-12">
+            <!-- 文段1 -->
+            <article class="diary-card rounded-lg p-6 md:p-8">
+                <div class="lxgw-wenkai text-gray-700 leading-relaxed text-lg">
+                    <p class="mb-4">「人一到群体中，智商就严重降低，为了获得认同，个体愿意抛弃是非，用智商去换取那份让人备感安全的归属感」</p>
+                    <div class="text-sm text-gray-500 mt-4 opacity-75">—— 关于群体与个体</div>
+                </div>
+            </article>
+
+            <!-- 文段2 -->
+            <article class="diary-card rounded-lg p-6 md:p-8">
+                <div class="lxgw-wenkai text-gray-700 leading-relaxed text-lg">
+                    <p class="mb-4">「每个人都带着他诞生时的残渣，都背负着史前世界的黏液和蛋壳，直到生命的终点」</p>
+                    <div class="text-sm text-gray-500 mt-4 opacity-75">—— 关于生命的重量</div>
+                </div>
+            </article>
+
+            <!-- 文段3 -->
+            <article class="diary-card rounded-lg p-6 md:p-8">
+                <div class="lxgw-wenkai text-gray-700 leading-relaxed text-lg">
+                    <p class="mb-4">「收起辩驳欲也是一种成熟」</p>
+                    <div class="text-sm text-gray-500 mt-4 opacity-75">—— 关于沉默的智慧</div>
+                </div>
+            </article>
+        </section>
+
+        <!-- 底部签名 -->
+        <footer class="fade-in text-center mt-16">
+            <p class="lxgw-wenkai text-gray-500 text-sm opacity-75">
+                记录流动的心绪，在文字中寻找自己
+            </p>
+        </footer>
+    </main>
+
+    <script>
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((el, index) => {
+                el.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About · 关于我</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --warm-text: rgba(55, 65, 81, 0.95); /* gray-700 */
+            --soft-text: rgba(75, 85, 99, 0.85); /* gray-600 */
+        }
+        .lxgw-wenkai { font-family: 'LXGW WenKai', cursive; }
+        .playfair { font-family: 'Playfair Display', serif; }
+
+        /* 柔光梦幻渐变（淡绿→玫瑰粉） */
+        .dream-gradient {
+            background: linear-gradient(135deg,
+                #eaf7ef 0%,
+                #f6ecf3 45%,
+                #efeef7 70%,
+                #e9f5ee 100%
+            );
+        }
+
+        /* 页面淡入 */
+        .fade-in { animation: fadeIn 1.2s ease-out both; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px);} to { opacity: 1; transform: translateY(0);} }
+
+        /* 星点与花瓣漂浮 */
+        .sparkle { position: absolute; width: 2px; height: 2px; background: rgba(255,255,255,.9); border-radius: 50%; opacity: 0; animation: sparkle 3s ease-in-out infinite; }
+        @keyframes sparkle { 0%,100%{opacity:0; transform: scale(0) rotate(0);} 50%{opacity:1; transform: scale(1) rotate(180deg);} }
+
+        .petal { position: absolute; width: 10px; height: 10px; background: rgba(255,182,193,.55); border-radius: 50% 0; filter: blur(.2px); animation: fall 14s linear infinite; }
+        @keyframes fall { 0%{ transform: translateY(-100vh) rotate(0);} 100%{ transform: translateY(100vh) rotate(360deg);} }
+
+        /* INFP 圆形标签的柔光底与发光 */
+        .soft-orb {
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.8), rgba(255,192,203,.35) 60%, rgba(255,255,255,.15));
+            box-shadow: 0 10px 25px rgba(255, 182, 193, .35), inset 0 2px 8px rgba(255,255,255,.6);
+            transition: transform .6s ease, box-shadow .6s ease;
+        }
+        .soft-orb:hover { box-shadow: 0 14px 36px rgba(255, 182, 193, .55), inset 0 3px 12px rgba(255,255,255,.75); transform: translateY(-4px) rotate(2deg); }
+
+        /* 细节：滚动条更柔和 */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 182, 193, .45); border-radius: 3px; }
+        ::-webkit-scrollbar-track { background: rgba(255,255,255,.15); }
+    </style>
+</head>
+<body class="min-h-screen dream-gradient overflow-x-hidden">
+    <!-- 导航栏 -->
+    <nav class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50">
+        <div class="flex space-x-4 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 border border-white/30">
+            <button onclick="window.location.href='index.html'" class="lxgw-wenkai text-sm text-gray-700 hover:text-gray-900 transition-colors">
+                首页
+            </button>
+            <button class="lxgw-wenkai text-sm text-gray-900 font-medium">
+                关于我
+            </button>
+            <button onclick="window.location.href='gallery.html'" class="lxgw-wenkai text-sm text-gray-700 hover:text-gray-900 transition-colors">
+                视觉空间
+            </button>
+        </div>
+    </nav>
+
+    <!-- 背景：星点与花瓣层 -->
+    <div class="fixed inset-0 pointer-events-none">
+        <!-- 星点 -->
+        <span class="sparkle" style="top:20%;left:10%;animation-delay:.0s"></span>
+        <span class="sparkle" style="top:30%;left:80%;animation-delay:1.0s"></span>
+        <span class="sparkle" style="top:60%;left:20%;animation-delay:2.0s"></span>
+        <span class="sparkle" style="top:70%;left:70%;animation-delay:.5s"></span>
+        <span class="sparkle" style="top:40%;left:50%;animation-delay:1.5s"></span>
+        <span class="sparkle" style="top:80%;left:30%;animation-delay:2.5s"></span>
+        <span class="sparkle" style="top:15%;left:60%;animation-delay:3.0s"></span>
+
+        <!-- 花瓣 -->
+        <span class="petal" style="left:12%; animation-delay:0s"></span>
+        <span class="petal" style="left:28%; animation-delay:1.2s"></span>
+        <span class="petal" style="left:46%; animation-delay:2.4s"></span>
+        <span class="petal" style="left:64%; animation-delay:3.6s"></span>
+        <span class="petal" style="left:82%; animation-delay:4.8s"></span>
+    </div>
+
+    <!-- 主体内容 -->
+    <main class="relative z-10 px-6 py-20 md:py-24">
+        <!-- 上半：头像 + 自述（安静的自白） -->
+        <section class="fade-in max-w-3xl mx-auto text-center mb-16 md:mb-20">
+            <!-- 柔光圆形头像/剪影 -->
+            <div class="w-28 h-28 md:w-36 md:h-36 mx-auto rounded-full overflow-hidden shadow-xl soft-orb animate-[float_6s_ease-in-out_infinite]"></div>
+
+            <!-- 自述文本 -->
+            <div class="lxgw-wenkai max-w-lg mx-auto text-center leading-relaxed opacity-90 text-gray-700 space-y-3 mt-8">
+                <p>我是一个i人，对AI略有兴趣。</p>
+                <p>最近有些迷茫，所以就想通过这种方式转移一下注意力。</p>
+                <p>有时候别人不经意间说的话，我会在意很久。</p>
+                <p>我讨厌那种空洞的喧嚣，也讨厌被迫倾听。</p>
+                <p>明明什么都不会，还要装作自己很懂。</p>
+                <p>我只是想安静地存在，不吵不闹。</p>
+                <p>所以，有时我选择沉默。</p>
+            </div>
+        </section>
+
+        <!-- 下半：INFP 标签 + 签名句 -->
+        <section class="fade-in max-w-3xl mx-auto text-center">
+            <!-- INFP 四圆 -->
+            <div class="flex items-end justify-center gap-6 md:gap-10">
+                <!-- I -->
+                <div class="flex flex-col items-center space-y-3">
+                    <div class="soft-orb w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center text-2xl md:text-3xl text-gray-700" style="animation: orbFloat 3.2s ease-in-out infinite;">I</div>
+                    <div class="lxgw-wenkai text-sm text-gray-600 opacity-90">独处</div>
+                </div>
+                <!-- N -->
+                <div class="flex flex-col items-center space-y-3">
+                    <div class="soft-orb w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center text-2xl md:text-3xl text-gray-700" style="animation: orbFloat 3.4s ease-in-out infinite .1s;">N</div>
+                    <div class="lxgw-wenkai text-sm text-gray-600 opacity-90">直觉</div>
+                </div>
+                <!-- F -->
+                <div class="flex flex-col items-center space-y-3">
+                    <div class="soft-orb w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center text-2xl md:text-3xl text-gray-700" style="animation: orbFloat 3.6s ease-in-out infinite .2s;">F</div>
+                    <div class="lxgw-wenkai text-sm text-gray-600 opacity-90">情感</div>
+                </div>
+                <!-- P -->
+                <div class="flex flex-col items-center space-y-3">
+                    <div class="soft-orb w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center text-2xl md:text-3xl text-gray-700" style="animation: orbFloat 3.8s ease-in-out infinite .3s;">P</div>
+                    <div class="lxgw-wenkai text-sm text-gray-600 opacity-90">开放</div>
+                </div>
+            </div>
+
+            <!-- 签名句 -->
+            <p class="lxgw-wenkai mt-12 md:mt-14 text-gray-600 opacity-90">「我喜欢独处，这是我与世界对话的一种方式。」</p>
+        </section>
+    </main>
+
+    <style>
+        /* 轻缓浮动 */
+        @keyframes orbFloat { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-6px);} }
+        @keyframes float { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-12px);} }
+    </style>
+</body>
+</html>
+
+
